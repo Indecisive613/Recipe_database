@@ -244,7 +244,7 @@ def findRecipe(user, db):
 
 def mainPage(user, db):
   print("\n\n------COMP 3005 Recipe Database------")
-  print("Hi " + user + ". What would you like to do?") # Replace name with get
+  print("Hi " + user + ". What would you like to do?")
   validActions = ['1', '2', '3']
   userAction = '0'
   while(userAction not in validActions):
@@ -261,7 +261,7 @@ def mainPage(user, db):
   
 
 def usernameExists(userTable, username):
-  allUsers = userTable.getAll("username").run() # allUsers = [('cupcake',), ('indecisive',), ('mango',), ('panda',)]
+  allUsers = userTable.getAll("username").run()
   for nameTuple in allUsers:
     actual = nameTuple[0]
     if(actual == username):
@@ -295,7 +295,7 @@ def createAccount(db):
   while(uniqueUser == False):
       username = input("\nPlease enter a username:\n")
       password = input("Please enter a password:\n")
-      # Replace with SQL check for username uniqueness
+
       if(not usernameExists(userTable, username)):
         userTable.add(username=username, password=password)
         uniqueUser = True
